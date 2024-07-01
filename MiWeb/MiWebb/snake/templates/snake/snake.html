@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link href="{% static 'miweb/css/style.css' %}" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="{% static 'snake/css/style.css' %}" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'snake/img/logoo.png' %}">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" >
+                <img src="{% static 'snake/img/logoo.png' %}" alt="Logo" class="logo-img">
+            </a>
+            <a href="{% url 'home' %}" class="logo">Juegos Clasicos</a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}" >Inicio</a></li>
+                <li><a href="{% url 'tictactoe' %}">Tres en Raya</a></li>
+                <li><a href="{% url 'simondice' %}">Simon Dice</a></li>
+                <li><a href="#">Juego 3</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <div id="board"></div>
+    <div class="boardInfo">
+        
+        <h1 id="titulo">Simon Dice</h1>
+        <div>
+            Score: <div id="scoreBoard"></div>
+        </div>
+        <button id="start">Start</button>
+    </div>
+    <div id="gameOver">Game Over</div>
+    <script src="{% static 'snake/js/snake.js' %}" type="text/javascript" defer></script>
+</body>
+</html>

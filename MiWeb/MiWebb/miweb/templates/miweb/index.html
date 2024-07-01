@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Página de Presentación</title>
+    <link href="{% static 'miweb/css/style.css' %}" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'miweb/img/logooo.png' %}">
+
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="" >
+            <img src="{% static 'miweb/img/logooo.png' %}" alt="Logo" class="logo-img">
+            </a>
+            <a href="" class="logo">Juegos Clasicos</a>
+            
+            <ul class="nav-links">
+                <li><a href=" ">Inicio</a></li>
+                <li><a href="#">Tres en Raya</a></li>
+                <li><a href="#">Juego 2</a></li>
+                <li><a href="#">Juego 3</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contenedor-filas">
+        <div class="fila-elementos">
+            <div class="elemento">
+                <a href="tictactoe/" style="text-decoration: none; color: #333;">
+                <img src="/miweb/static/miweb/img/tresraya.jpg" alt="Botón 1">
+                <br>Tres en raya</a></div>
+            
+            <div class="elemento">
+                <a href="simondice/" style="text-decoration: none; color: #333;">
+                <img src="/miweb/static/miweb/img/simondice.jpg" alt="Botón 2">
+                <br>Simon Dice</a></div>
+            
+            <div class="elemento">
+                <a href="snake/" style="text-decoration: none; color: #333;">
+                <img src="/miweb/static/miweb/img/snake.png" alt="Botón 3">
+                <br>Snake</a></div>
+        </div>
+
+        <div class="fila-elementos">
+            <div class="elemento">
+                <a href="ahorcado/" style="text-decoration: none; color: #333;">
+                    <img src="/miweb/static/miweb/img/ahorcado.png" alt="Botón 4">
+                <br>Ahorcado</a></div>
+            
+            <div class="elemento">
+                <a href="dosmil/" style="text-decoration: none; color: #333;">
+                <img src="/miweb/static/miweb/img/2048.png" alt="Botón 5">
+                <br>2048</a></div>
+            
+            <div class="elemento">
+                <a href="boton/" style="text-decoration: none; color: #333;">
+                <img src="/miweb/static/miweb/img/tresraya.jpg" alt="Botón 6">
+                <br>juego 6</a></div>
+        </div>
+    </div>
+    
+</body>
+</html>

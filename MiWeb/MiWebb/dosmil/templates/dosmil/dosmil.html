@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>2048</title>
+  
+  <link href="{% static 'dosmil/css/style.css' %}" type="text/css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{% static 'miweb/img/logooo.png' %}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'miweb/img/logooo.png' %}" alt="Logo" class="logo-img">
+      </a>
+      
+      <a href="{% url 'home' %}" class="logo">Juegos Clasicos</a>
+    
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}" >Inicio</a></li>
+        <li><a href="{% url 'tictactoe' %}">Tres</a></li>
+        <li><a href="{% url 'simondice' %}">Simon Dice</a></li>
+        <li><a href="{% url 'snake' %}">Snake</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="game-container">
+    <div class="info">
+      <h1>2048</h1>
+      <div class="score-container">
+        <div class="score-title">score</div>
+        <span id="score">0</span>
+      </div>
+    </div>
+    <span id="result">Une los números y llega a <b>2048</b></span>
+    <div class="grid"></div>
+  </div>
+
+  <script src="{% static 'dosmil/js/dosmil.js' %}" type="text/javascript" defer></script>
+
+</body>
+</html>

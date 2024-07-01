@@ -1,0 +1,80 @@
+.navbar {
+    background-color: #333;
+    padding: 6px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000; /* Asegura que el navbar esté por encima del resto del contenido */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1920px;
+}
+.logo {
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+   margin-right: 1225px;
+}
+.logo-img {
+    width: 70px;
+    height: 70px;
+    margin-left: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 20px;
+}
+
+.nav-links li {
+    margin-left: 20px; /* Ajusta el espacio entre los enlaces */
+}
+
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+body {
+    background-color: rgb(235, 176, 15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+.contenedor-filas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fila-elementos {
+    display: flex;
+    justify-content: space-around;
+    width: 300px; /* Ancho del contenedor de la fila */
+}
+
+.elemento {
+    padding: 8px 16px;
+    font-size: 16px;
+    margin: 10px;
+    border: 1px solid #333;
+    background-color: #fff;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,163 @@
+<!-- tictactoe/templates/tictactoe/game.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Juego de 3 en Raya</title>
+    <link href="{% static 'miweb/css/style.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'tictactoe/css/style.css' %}" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'tictactoe/img/logooo.png' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" >
+                <img src="{% static 'tictactoe/img/logooo.png' %}" alt="Logo" class="logo-img">
+            </a>
+            <a href="{% url 'home' %}" class="logo">Juegos Clasicos</a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}" >Inicio</a></li>
+                <li><a href="#">Tres en Raya</a></li>
+                <li><a href="#">Juego 2</a></li>
+                <li><a href="#">Juego 3</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div id="message-container">
+        <h1 id="titulo">Juego de 3 en Raya</h1>
+
+        
+        
+        <table>
+            <tr>
+                <td onclick="makeMove(this)"></td>
+                <td onclick="makeMove(this)"></td>
+                <td onclick="makeMove(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="makeMove(this)"></td>
+                <td onclick="makeMove(this)"></td>
+                <td onclick="makeMove(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="makeMove(this)"></td>
+                <td onclick="makeMove(this)"></td>
+                <td onclick="makeMove(this)"></td>
+            </tr>
+        </table>
+
+        <div id="message-overlay"></div>
+        <div id="controls-container">
+            <button id="restart-button" onclick="restartGame()">Reiniciar Juego</button>
+            <p id="player-turn">Jugador actual: X</p>
+            
+        </div>
+        <button class="modo" onclick="toggleGameMode()">Cambiar Modo</button>
+    </div>
+
+    
+
+    <script>
+        var currentPlayer = 'X';
+        var aiPlayer = 'O';  // Nueva variable para la IA
+        var gameOver = false;
+        var messageOverlay = document.getElementById('message-overlay');
+        var isAgainstAI = false;
+
+        function makeMove(cell) {
+            if (cell.innerHTML === '' && !gameOver) {
+                cell.innerHTML = currentPlayer;
+                checkWinner();
+
+                if (isAgainstAI && !gameOver) {
+                    switchPlayer();
+                    
+                    setTimeout(makeAIMove, 500);
+                } else {
+                    switchPlayer();
+                }
+            } else if (gameOver) {
+                showMessage('El juego ha terminado. Por favor, reinicie el juego.');
+            }
+        }
+        
+
+        function switchPlayer() {
+            currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+            document.getElementById('player-turn').innerHTML = 'Jugador actual: ' + currentPlayer;
+        }
+    
+        function checkWinner() {
+            var board = document.querySelectorAll('td');
+            var lines = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // filas
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // columnas
+                [0, 4, 8], [2, 4, 6] // diagonales
+            ];
+    
+            for (var i = 0; i < lines.length; i++) {
+                var [a, b, c] = lines[i];
+                if (board[a].innerHTML && board[a].innerHTML === board[b].innerHTML && board[a].innerHTML === board[c].innerHTML) {
+                    showMessage('¡' + currentPlayer + ' ha ganado!');
+                    gameOver = true;
+                    return;
+                }
+            }
+    
+            // Verificar empate
+            var isDraw = [...board].every(cell => cell.innerHTML);
+            if (isDraw) {
+                showMessage('Empate');
+                gameOver = true;
+            }
+        }
+    
+        function showMessage(message) {
+            messageOverlay.innerHTML = message;
+            messageOverlay.style.display = 'block';
+    
+            // Ocultar el mensaje después de 3 segundos (3000 milisegundos)
+            setTimeout(function () {
+                messageOverlay.style.display = 'none';
+            }, 4000);
+        }
+
+        function restartGame() {
+            // Agrega lógica para reiniciar el juego (limpiar el tablero, reiniciar variables, etc.)
+            // Por ejemplo, podrías recargar la página para reiniciar todo el juego.
+            location.reload();
+        }
+
+        function toggleGameMode() {
+            // Cambia el valor de la variable para alternar entre modos
+            isAgainstAI = !isAgainstAI;
+            
+            // Reinicia el juego cuando cambias el modo
+            restartGame();
+        }
+        
+        
+        function makeAIMove() {
+            var board = document.querySelectorAll('td');
+            var emptyCells = [...board].filter(cell => cell.innerHTML === '');
+        
+            if (emptyCells.length > 0 && !gameOver) {
+                var randomIndex = Math.floor(Math.random() * emptyCells.length);
+                emptyCells[randomIndex].innerHTML = aiPlayer;  // Utiliza aiPlayer para la IA
+                checkWinner();
+                switchPlayer();
+            }
+        }
+        
+        
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>

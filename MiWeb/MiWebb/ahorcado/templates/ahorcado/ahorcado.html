@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+    <link href="http://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
+    <link href="{% static 'ahorcado/css/style.css' %}" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'ahorcado/img/logoo.png' %}">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" >
+                <img src="{% static 'ahorcado/img/logoo.png' %}" alt="Logo" class="logo-img">
+            </a>
+            <a href="{% url 'home' %}" class="logo">Juegos Clasicos</a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}" >Inicio</a></li>
+                <li><a href="{% url 'tictactoe' %}">Tres en Raya</a></li>
+                <li><a href="{% url 'simondice' %}">Simon Dice</a></li>
+                <li><a href="{% url 'snake' %}">Snake</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Ahorcado Pixel</h1>
+    <div>
+        <canvas id="canvas"></canvas>
+        <div id="usedLetters"></div>
+    </div>
+    <div id="usedLetters"></div>
+    <div id="wordContainer"></div>
+    <button id="startButton">START</button>
+    <script src="{% static 'ahorcado/js/ahorcado.js' %}" type="text/javascript" defer></script>
+    <script src="{% static 'ahorcado/js/palabras.js' %}" type="text/javascript" defer></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+body {
+    background-color: rgb(178, 22, 48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+
+.simon {
+    position: relative;
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.buttonContainer {
+    display: inline-grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto;
+    transform: rotate(45deg);
+}
+
+.square {
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.square:active,
+.active {
+    filter: brightness(125%) saturate(150%);
+}
+
+.red {
+    background-color: rgb(245, 102, 41);
+}
+
+.blue {                 
+    background-color:   rgb(40, 200, 186);
+}
+
+.green {    
+    background-color: rgb(94, 170, 74);
+}
+
+.yellow {
+    background-color: rgb(255, 218, 59);
+}
+
+
+#startButton {
+    width: 75px;
+    position: absolute;
+    top: 20px;
+    left: 325px;
+    border: none;
+    font-family: 'Merriweather', serif;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #587792;
+    padding: 5px;
+}
+
+#startButton:disabled {
+    background-color: #eee;
+}
+
+.title {
+    width: min-content;
+}
+
+.winner {
+    animation: spin 1s ease-in-out;
+}
+
+@keyframes spin { 
+    100% { transform:rotate(180deg) } 
+}
+
+
+.hidden {
+    display: none;
+}
+
+#gameOverMessage {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff0000; /* Color rojo para indicar pérdida */
+    text-align: center;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 20px 4px #000000; /* Añade un borde negro */
+}
